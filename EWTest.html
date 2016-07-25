@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page Element Watcher Test</title>
+    <script src="ElementWatcher2.js" language="JavaScript"></script>
+    <script>
+
+        function my_own_action() {
+            var date = new Date();
+            document.getElementById("result").innerHTML = "---------Element Changed!!!--------" + date.getTime();
+        }
+
+        function raiseElementChange(){
+            document.getElementById("changeable").innerHTML += ("<br>" + "新加文本");
+        }
+
+    </script>
+
+    <style>
+        .simple_button{
+            width: 100px;
+            background-color: aquamarine;
+            height:60px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="simple_button" onclick="raiseElementChange()">触发元素变化</div>
+    <div id="changeable">这里的文字一旦发生变化，下面这一行就会有反应。</div>
+    <br>
+    <div id="result">------</div>
+
+</body>
+
+<script>
+    var my_watcher = ElementWatcher.createNew("changeable",20,my_own_action);
+    my_watcher.init();
+</script>
+</html>

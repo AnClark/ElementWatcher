@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Javascript版时钟</title>
+    <script>
+        var oInterval="";
+        function fnRecycle(){
+            var oDate=new Date();
+            var sSwitch="AM";//上午
+            var iHours=oDate.getHours();
+            if(iHours>12){
+                iHours-=12;
+                sSwitch="PM";//下午
+            }
+            var sMinutes=oDate.getMinutes() + "";
+            if(sMinutes.length==1){
+                sMinutes="0" + sMinutes;
+            }
+            var sSeconds=oDate.getSeconds() + "";
+            if(sSeconds.length==1){
+                sSeconds="0" + sSeconds;
+            }
+            oTimer.innerHTML=iHours + ":" + sMinutes + ":" + sSeconds + " " + sSwitch;
+        }
+        function window_onload() {
+           // if(oInterval==""){
+                oInterval=window.setInterval("fnRecycle()",1000);
+           // }
+        }
+        </script>
+        </head>
+        <body language="javascript" onload="return window_onload()">
+                <!-- 页面调用 -->
+                Javascript版时钟：<span id="oTimer" ></span>
+                </body>
+</html>

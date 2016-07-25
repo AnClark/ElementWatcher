@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        var i = 1;
+        var id = null;
+        function timer_core() {
+            i++;
+            document.getElementById("banner").innerHTML=i.toString();
+        }
+
+        id = window.setInterval(timer_core,10);
+
+        function pause_button(){
+            window.clearInterval(id);
+        }
+
+    </script>
+</head>
+<body>
+
+<h1>setInterval 测试页面</h1>
+<h2 id="banner"></h2>
+<br><br>
+<div onclick="pause_button()">暂停</div>
+
+</body>
+</html>
